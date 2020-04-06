@@ -22,3 +22,16 @@ Show trafic flow (Network)
 
 ##Update image tag
 
+Show DIFF
+Sinc only one component
+Show new ReplicaSet
+Switch to network flow
+show pop-up versions
+
+Show rollout status using CLI
+```
+kubectl argo rollouts get rollout bluegreen-demo
+```
+
+Resume deployment usin UI
+
