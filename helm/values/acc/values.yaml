@@ -1,4 +1,4 @@
-fullnameOverride: "bluegreen-demo"
+fullnameOverride: "bluegreen-demo-acc"
 replicaCount: 3
 ingress:
   enabled: true

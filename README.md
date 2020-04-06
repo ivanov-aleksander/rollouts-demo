@@ -54,3 +54,9 @@ helm upgrade --install bluegreen-demo-tst  --namespace bluegreen-demo-tst -f hel
 helm upgrade --install bluegreen-demo-acc  --namespace bluegreen-demo-acc -f helm/values/acc/values.yaml helm/demo
 
 
+Show links for ingress in pop-up  application
+
+
+
+##Clean up
+helm delete bluegreen-demo bluegreen-demo-acc bluegreen-demo-tst --purge 
