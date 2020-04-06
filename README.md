@@ -28,10 +28,25 @@ Show new ReplicaSet
 Switch to network flow
 show pop-up versions
 
+
+Resume deployment usin UI
+
+
+#CLI Plugin
 Show rollout status using CLI
 ```
 kubectl argo rollouts get rollout bluegreen-demo
 ```
 
-Resume deployment usin UI
+Promote deployment using CLI
+```
+kubectl argo rollouts promote bluegreen-demo
+```
 
+##Roll back
+Show images gui and cli
+
+
+##HELM
+
+helm upgrade --install bluegreen-demo -f helm/values/acc/values.yaml helm/demo

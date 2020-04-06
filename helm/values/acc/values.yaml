@@ -1,0 +1,25 @@
+fullnameOverride: "bluegreen-demo"
+replicaCount: 3
+ingress:
+  enabled: true
+  annotations:
+    ingress.kubernetes.io/proxy-body-size: 100M
+    kubernetes.io/ingress.class: nginx
+    ingress.kubernetes.io/app-root: /
+  hosts:
+    - host: blue-green.digitaldev.nl
+      paths: 
+      - path: /
+        backend:
+          serviceName: bluegreen-demo
+    - host: blue-green-preview.digitaldev.nl
+      paths: 
+      - path: /
+        backend:
+          serviceName: bluegreen-demo-preview
+
+strategy:
+  blueGreen:
+    autoPromotionEnabled: false
+    activeService: bluegreen-demo
+    previewService: bluegreen-demo-preview
