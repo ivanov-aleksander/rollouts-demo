@@ -49,4 +49,8 @@ Show images gui and cli
 
 ##HELM
 
-helm upgrade --install bluegreen-demo -f helm/values/acc/values.yaml helm/demo
+helm upgrade --install bluegreen-demo  --namespace bluegreen-demo  -f helm/values/prd/values.yaml helm/demo
+helm upgrade --install bluegreen-demo-tst  --namespace bluegreen-demo-tst -f helm/values/tst/values.yaml helm/demo
+helm upgrade --install bluegreen-demo-acc  --namespace bluegreen-demo-acc -f helm/values/acc/values.yaml helm/demo
+
+
