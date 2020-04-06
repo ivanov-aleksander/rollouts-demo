@@ -2,37 +2,13 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: bluegreen-demo
-  # You'll usually want to add your resources to the argocd namespace.
-  namespace: bluegreen-demo
+  namespace: argocd 
 spec:
-  # The project the application belongs to.
-  project: default
-
-  # Source of the application manifests
-  source:
-    repoURL: https://github.com/ivanov-aleksander/rollouts-demo.git
-    targetRevision: HEAD
-    path: guestbook
-
-    # helm specific config
-    helm:
-      # Release name override (defaults to application name)
-      releaseName: guestbook
-
-      # Helm values files for overriding values in the helm chart
-      # The path is relative to the spec.source.path directory defined above
-      valueFiles:
-      - values-prod.yaml
-
-  # Destination cluster and namespace to deploy the application
   destination:
-    server: https://kubernetes.default.svc
-    namespace: guestbook
-
-
-  # Ignore differences at the specified json pointers
-  ignoreDifferences:
-  - group: apps
-    kind: Deployment
-    jsonPointers:
-    - /spec/replicas
+    namespace: bluegreen-demo
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: 'https://github.com/ivanov-aleksander/rollouts-demo.git'
+    targetRevision: HEAD
+    path: blue-green
+  project: default
