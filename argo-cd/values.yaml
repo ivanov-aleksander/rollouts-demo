@@ -1,0 +1,31 @@
+fullnameOverride: "argo-cd"
+## Server
+server:
+  ## Additional command line arguments to pass to argocd-server
+  ##
+  extraArgs:
+   - --insecure
+
+  config:
+    repositories: |
+      - url: https://github.com/ivanov-aleksander/rollouts-demo.git
+
+
+
+  ingress:
+    enabled: true
+    annotations: {}
+    labels: {}
+
+    ## Argo Ingress.
+    ## Hostnames must be provided if Ingress is enabled.
+    ## Secrets must be manually created in the namespace
+    ##
+    hosts:
+      - argocd-demo.digitaldev.nl
+    paths:
+      - /
+    tls:
+      - secretName: digitaldev.nl-tls 
+        hosts:
+          - argocd-demo.digitaldev.nl
