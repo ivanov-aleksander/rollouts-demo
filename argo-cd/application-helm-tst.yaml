@@ -4,14 +4,14 @@ metadata:
   name: demo-tst
   namespace: argocd 
 spec:
-  destination:
-    namespace: bluegreen-demo-tst
-    server: 'https://kubernetes.default.svc'
   source:
-    path: helm/demo
     repoURL: 'https://github.com/ivanov-aleksander/rollouts-demo.git'
     targetRevision: HEAD
+    path: helm/demo
     helm:
       valueFiles:
         - ../values/tst/values.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: bluegreen-demo-tst
   project: default

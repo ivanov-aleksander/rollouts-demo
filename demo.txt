@@ -1,0 +1,5 @@
+helm upgrade --install bluegreen-demo-tst  --namespace bluegreen-demo-tst -f helm/values/tst/values.yaml helm/demo
+
+kubectl argo rollouts get rollout bluegreen-demo
+
+kubectl argo rollouts promote bluegreen-demo
