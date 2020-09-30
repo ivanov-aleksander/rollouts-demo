@@ -1,4 +1,5 @@
 fullnameOverride: "argo-cd"
+
 ## Server
 server:
   ## Additional command line arguments to pass to argocd-server
@@ -14,18 +15,12 @@ server:
 
   ingress:
     enabled: true
-    annotations: {}
-    labels: {}
 
     ## Argo Ingress.
     ## Hostnames must be provided if Ingress is enabled.
     ## Secrets must be manually created in the namespace
     ##
     hosts:
-      - argocd-demo.digitaldev.nl
+      - argocd.demo.com
     paths:
       - /
-    tls:
-      - secretName: digitaldev.nl-tls 
-        hosts:
-          - argocd-demo.digitaldev.nl
