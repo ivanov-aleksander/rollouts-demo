@@ -19,24 +19,24 @@ ingress:
           serviceName: bluegreen-demo-preview
 
 image:
-  tag: yellow
+  tag: blue
 
-
-# strategy:
-#   blueGreen:
-#     autoPromotionEnabled: false
-#     activeService: bluegreen-demo
-#     previewService: bluegreen-demo-preview
 
 strategy:
-  canary:
-    canaryService: bluegreen-demo-preview
-    steps:
-    - setWeight: 20
-    - pause: {}
-    - setWeight: 40
-    - pause: {duration: 10}
-    - setWeight: 60
-    - pause: {duration: 10}
-    - setWeight: 80
-    - pause: {duration: 10}
+  blueGreen:
+    autoPromotionEnabled: false
+    activeService: bluegreen-demo
+    previewService: bluegreen-demo-preview
+
+# strategy:
+#   canary:
+#     canaryService: bluegreen-demo-preview
+#     steps:
+#     - setWeight: 20
+#     - pause: {}
+#     - setWeight: 40
+#     - pause: {duration: 10}
+#     - setWeight: 60
+#     - pause: {duration: 10}
+#     - setWeight: 80
+#     - pause: {duration: 10}
