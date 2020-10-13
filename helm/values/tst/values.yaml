@@ -19,12 +19,12 @@ ingress:
           serviceName: bluegreen-demo-preview
 
 image:
-  tag: green
+  tag: blue
 
 
 strategy:
   blueGreen:
-    autoPromotionEnabled: false
+    autoPromotionEnabled: true
     activeService: bluegreen-demo
     previewService: bluegreen-demo-preview
 
