@@ -19,7 +19,7 @@ ingress:
           serviceName: bluegreen-demo-preview
 
 image:
-  tag: blue
+  tag: green
 
 
 # strategy:
