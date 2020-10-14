@@ -5,10 +5,11 @@ helm upgrade --atomic --install  --namespace argocd -f argo-cd/argocd-values.yam
 ```
 ## Install Argo Rollout
 helm upgrade --atomic --install  --namespace argocd argo-rollouts argo/argo-rollouts
+
 ## Add application CRD
 
 ```bash
-kubectl create -f argo-cd/application.yaml
+kubectl create -f argo-cd/application-helm.yaml
 ```
 
 AutoSync is disabled as a result applications status is OutOfSync. 
