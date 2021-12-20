@@ -1,8 +1,17 @@
+
 ## Install ArgoCD
 
-```bash
-helm upgrade --atomic --install  --namespace argocd -f argo-cd/argocd-values.yaml argocd argo/argo-cd
+```bash 
+helm repo add argo https://argoproj.github.io/argo-helm
+helm upgrade --atomic --install  --namespace argocd --create-namespace -f argo-cd/argocd-values.yaml argocd argo/argo-cd
 ```
+
+After reaching the UI the first time you can login with username: admin and the random password generated during the installation. You can find the password by running:
+
+```bash 
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+```
+
 ## Install Argo Rollout
 helm upgrade --atomic --install  --namespace argocd argo-rollouts argo/argo-rollouts
 
